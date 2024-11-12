@@ -10,15 +10,22 @@ public class ChestLock : MonoBehaviour
     public GameObject Lock;
 
     public AudioSource DropLockfx;
-   
+
+    public GameObject Chest;
+
+    public AudioSource ChestOpenFX;
+
 
     //Player colliding with lock, plays animation. Useful to call animations to play
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerStay(Collider other)
     {
-            if (Input.GetKey(KeyCode.Q))
-            {
-                Lock.GetComponent<Animator>().Play("Lock Drop");
-                DropLockfx.Play();
-            }
+        if (Input.GetKeyDown(KeyCode.Q))
+        {
+            Lock.GetComponent<Animator>().Play("LockDrop");
+            Chest.GetComponent<Animator>().Play("OpenChest");
+            //ChestOpenFX.Play();
+            //DropLockfx.Play();
+        }
     }
+    
 }
