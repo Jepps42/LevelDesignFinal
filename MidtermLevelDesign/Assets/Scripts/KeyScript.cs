@@ -12,15 +12,15 @@ public class KeyScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        doorCollider.SetActive(false);
+        doorCollider.SetActive(true);
     }
 
-    private void OnTriggerEnter(Collider other)
+   public void GoKey()
     {
-        if(other.gameObject.tag == "Player")
-        {
-            doorCollider.SetActive(true);
+        
+       
+            doorCollider.SetActive(false);
             Destroy(gameObject);
-        }
+       
     }
 }
